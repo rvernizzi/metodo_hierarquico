@@ -1,0 +1,17 @@
+USArrests # dados clássicos - Fala sobre indice de assassinatos ems diversas regiões dos Estados Unidos
+
+#criar o agrupamento
+agrupamento_USArrests<- hclust(dist(USArrests[2:4]), method = "complete") # 
+agrupamento_USArrests
+
+#cria gráficos
+plot(agrupamento_USArrests, hang = -1)
+
+hcd <- as.dendrogram(agrupamento_USArrests)
+hcd
+
+plot(hcd, main="Dendograma")
+plot(cut(hcd, h=0.2)$upper, main="Arvore com corte em h")
+
+plot(hcd, main="Dendograma")
+plot(cut(hcd, h=8)$lower[[8]], main="Segundo ramo da Arvore inferior com corte em h = 10")
